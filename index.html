@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="lt">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Ernestas – Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Greitos, tvarkingos svetainės mažam verslui. HTML/CSS/JS ir React.">
+</head>
+<body>
+<header class="site-top">
+    <div class="container">
+        <h1>Ernestas • Web kūrėjas</h1>
+        <nav>
+            <a href="#works">Darbai</a>
+            <a href="#pricing">Kainos</a>
+            <a href="#contact" class="btn">Susisiekti</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section id="hero" class="hero">
+        <div class="container">
+            <h2>Greitos, aiškios, responsyvios svetainės</h2>
+            <p>HTML/CSS/JS • React (Vite/Next) • Formos, SEO, hostinimas.</p>
+            <div class="cta">
+                <a class="btn" href="#pricing">Gauti pasiūlymą</a>
+                <a class="btn-outline" href="#works">Peržiūrėti darbus</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="works" class="works container">
+        <h3>Projektai</h3>
+        <div class="grid">
+            <article class="card">
+                <img src="img/autoservisas.jpg" alt="Autoservisas">
+                <div class="card-body">
+                    <h4>Autoservisas (HTML/CSS/JS)</h4>
+                    <p>Landing su paslaugomis ir CTA. Responsyvus dizainas.</p>
+                    <div class="links">
+                        <a class="btn" href="https://Ernestas108.github.io/autoservisas---site/" target="_blank">Live</a>
+                        <a class="btn-outline" href="https://github.com/Ernestas108/autoservisas---site" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="img/treneris-hero.jpg" alt="Trenerė ir klientė sporto salėje">
+                <div class="card-body">
+                    <h4>Treneris (HTML/CSS/JS)</h4>
+                    <p>Paslaugos, planai, kontaktų forma su Formspree.</p>
+                    <div class="links">
+                        <a class="btn" href="https://Ernestas108.github.io/treneris-site/" target="_blank">Live</a>
+                        <a class="btn-outline" href="https://github.com/Ernestas108/treneris-site" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="img/dashboard.jpg" alt="React dashboard grafikai">
+                <div class="card-body">
+                    <h4>Mini Dashboard (React)</h4>
+                    <p>Filtruojama lentelė, paieška, tamsi tema.</p>
+                    <div class="links">
+                        <a class="btn" href="https://Ernestas108.github.io/react-dashboard/" target="_blank">Live</a>
+                        <a class="btn-outline" href="https://github.com/Ernestas108/react-dashboard" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h3>Kainos</h3>
+            <div class="grid">
+                <div class="price">
+                    <h4>Start</h4><strong>€199</strong>
+                    <ul><li>Vieno puslapio landing</li><li>Responsyvus</li><li>Diegimas</li></ul>
+                </div>
+                <div class="price featured">
+                    <h4>Plus</h4><strong>€299</strong>
+                    <ul><li>Iki 3 puslapių</li><li>Kontaktų forma</li><li>SEO meta</li></ul>
+                </div>
+                <div class="price">
+                    <h4>Custom</h4><strong>nuo €499</strong>
+                    <ul><li>React/Next</li><li>Integracijos</li><li>Admin skydas</li></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h3>Kontaktai</h3>
+            <p>Skambink: <a class="js-phone" href="#">+370 000 00 000</a> • El. paštas: <a href="ernestasnc@gmail.com">ernestasnc@gmail.com</a></p>
+        </div>
+    </section>
+</main>
+
+<footer class="footer"><div class="container">© <span id="y"></span> Ernestas</div></footer>
+<script>
+    const PHONE_RAW = '+37060457322', PHONE_DISPLAY = '+370 604 57322';
+    document.querySelectorAll('.js-phone').forEach(a=>{a.href='tel:'+PHONE_RAW;a.textContent=PHONE_DISPLAY});
+    document.getElementById('y').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
