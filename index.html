@@ -1,110 +1,131 @@
 <!doctype html>
 <html lang="lt">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Ernestas – Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <meta name="description" content="Greitos, tvarkingos svetainės mažam verslui. HTML/CSS/JS ir React.">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ernestas • Web kūrėjas</title>
+    <meta name="description" content="Greitos, aiškios, responsyvios svetainės. HTML/CSS/JS • React.">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<header class="site-top">
-    <div class="container">
-        <h1>Ernestas • Web kūrėjas</h1>
-        <nav>
-            <a href="#works">Darbai</a>
-            <a href="#pricing">Kainos</a>
-            <a href="#contact" class="btn">Susisiekti</a>
+
+<header class="topbar">
+    <div class="container nav">
+        <a href="#" class="brand">Ernestas</a>
+        <nav class="menu">
+            <a href="#works" data-scroll>Projektai</a>
+            <a href="#pricing" data-scroll>Kainos</a>
+            <a href="#contact" class="btn" data-scroll>Susisiekti</a>
         </nav>
     </div>
 </header>
 
-<main>
-    <section id="hero" class="hero">
-        <div class="container">
-            <h2>Greitos, aiškios, responsyvios svetainės</h2>
-            <p>HTML/CSS/JS • React (Vite/Next) • Formos, SEO, hostinimas.</p>
-            <div class="cta">
-                <a class="btn" href="#pricing">Gauti pasiūlymą</a>
-                <a class="btn-outline" href="#works">Peržiūrėti darbus</a>
+<section class="hero">
+    <video class="hero-video" autoplay muted playsinline loop
+           poster="img/portfolio-hero-poster-1756454414.jpg">
+        <source src="img/portfolio-hero-1756454414.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay">
+        <h1 class="reveal">Svetainės, kurios parduoda</h1>
+        <p class="reveal">HTML/CSS/JS • React • SEO • greitas hostinimas</p>
+        <div class="cta reveal">
+            <a class="btn" href="#works" data-scroll>Peržiūrėti darbus</a>
+            <a class="btn btn-outline" href="#pricing" data-scroll>Kainos</a>
+        </div>
+    </div>
+</section>
+
+<section id="works" class="section">
+    <div class="container">
+        <h2 class="reveal">Projektai</h2>
+
+        <div class="cards">
+            <article class="card reveal">
+                <img src="img/autoservisas.jpg" alt="Autoserviso keltuve laikomas automobilis">
+                <div class="card-body">
+                    <h3>Autoservisas</h3>
+                    <p>Paslaugos, kontaktai</p>
+                    <div class="links">
+                        <a class="btn" href="https://ernestas108.github.io/autoservisas-site/"
+                           target="_blank" rel="noopener">Live</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card reveal">
+                <img src="img/treneris-hero.jpg" alt="Treneris ir klientė sporto salėje">
+                <div class="card-body">
+                    <h3>Asmeninis treneris</h3>
+                    <p>Paslaugos, rezultatai</p>
+                    <div class="links">
+                        <a class="btn" href="https://ernestas108.github.io/treneris-site/"
+                           target="_blank" rel="noopener">Live</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card reveal">
+                <img src="img/dashboard.jpg" alt="Analitikos grafikai nešiojamojo kompiuterio ekrane">
+                <div class="card-body">
+                    <h3>Individualūs sprendimai</h3>
+                    <p>Sistemos</p>
+                    <div class="links">
+                        <a class="btn" href="#" aria-disabled="true">Greitai</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section id="pricing" class="section">
+    <div class="container">
+        <h2 class="reveal">Kainos</h2>
+        <div class="price-grid">
+            <div class="price-box reveal">
+                <h4>1 puslapis</h4>
+                <p class="amt">nuo €149</p>
+                <p>SEO bazė, kontaktai, hostinimas.</p>
+            </div>
+            <div class="price-box reveal">
+                <h4>Verslas</h4>
+                <p class="amt">nuo €349</p>
+                <p>3–5 puslapiai, forma, žemėlapis.</p>
+            </div>
+            <div class="price-box reveal">
+                <h4>Custom / React</h4>
+                <p class="amt">pagal projektą</p>
+                <p>Komponentai, integracijos, administravimas.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="works" class="works container">
-        <h3>Projektai</h3>
-        <div class="grid">
-            <article class="card">
-                <img src="img/autoservisas.jpg" alt="Autoservisas">
-                <div class="card-body">
-                    <h4>Autoservisas (HTML/CSS/JS)</h4>
-                    <p>Landing su paslaugomis ir CTA. Responsyvus dizainas.</p>
-                    <div class="links">
-                        <a class="btn" href="https://ernestas108.github.io/autoservisas-site/" target="_blank">Live</a>
-                        <a class="btn-outline" href="https://ernestas108.github.io/autoservisas-site" target="_blank">GitHub</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="card">
-                <img src="img/treneris-hero.jpg" alt="Trenerė ir klientė sporto salėje">
-                <div class="card-body">
-                    <h4>Treneris (HTML/CSS/JS)</h4>
-                    <p>Paslaugos, planai, kontaktų forma su Formspree.</p>
-                    <div class="links">
-                        <a class="btn" href="https://Ernestas108.github.io/treneris-site/" target="_blank">Live</a>
-                        <a class="btn-outline" href="https://github.com/Ernestas108/treneris-site" target="_blank">GitHub</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="card">
-                <img src="img/dashboard.jpg" alt="React dashboard grafikai">
-                <div class="card-body">
-                    <h4>Mini Dashboard (React)</h4>
-                    <p>Filtruojama lentelė, paieška, tamsi tema.</p>
-                    <div class="links">
-                        <a class="btn" href="https://Ernestas108.github.io/react-dashboard/" target="_blank">Live</a>
-                        <a class="btn-outline" href="https://github.com/Ernestas108/react-dashboard" target="_blank">GitHub</a>
-                    </div>
-                </div>
-            </article>
+<section id="contact" class="section">
+    <div class="container contact-grid">
+        <div class="reveal">
+            <h2>Kontaktai</h2>
+            <p><strong>Telefonas:</strong> <a class="js-phone"></a></p>
+            <p><strong>El. paštas:</strong> <a class="js-email"></a></p>
+            <p><strong>Vieta:</strong> Vilnius • Dirbu nuotoliu ir gyvai</p>
         </div>
-    </section>
+        <form class="card reveal" action="https://formspree.io/f/your-id" method="POST">
+            <h3>Parašykite žinutę</h3>
+            <input type="text" name="name" placeholder="Jūsų vardas" required />
+            <input type="email" name="email" placeholder="El. paštas" required />
+            <textarea name="message" rows="5" placeholder="Trumpai apie tikslą" required></textarea>
+            <button class="btn" type="submit">Siųsti</button>
+        </form>
+    </div>
+</section>
 
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <h3>Kainos</h3>
-            <div class="grid">
-                <div class="price">
-                    <h4>Start</h4><strong>€199</strong>
-                    <ul><li>Vieno puslapio landing</li><li>Responsyvus</li><li>Diegimas</li></ul>
-                </div>
-                <div class="price featured">
-                    <h4>Plus</h4><strong>€299</strong>
-                    <ul><li>Iki 3 puslapių</li><li>Kontaktų forma</li><li>SEO meta</li></ul>
-                </div>
-                <div class="price">
-                    <h4>Custom</h4><strong>nuo €499</strong>
-                    <ul><li>React/Next</li><li>Integracijos</li><li>Admin skydas</li></ul>
-                </div>
-            </div>
-        </div>
-    </section>
+<footer class="footer">
+    <div class="container foot">
+        <div>© <span id="y"></span> Ernestas</div>
+        <div>Skambink: <a class="js-phone"></a> • El. paštas: <a class="js-email"></a></div>
+    </div>
+</footer>
 
-    <section id="contact" class="contact">
-        <div class="container">
-            <h3>Kontaktai</h3>
-            <p>Skambink: <a class="js-phone" href="#">+370 000 00 000</a> • El. paštas: <a href="ernestasnc@gmail.com">ernestasnc@gmail.com</a></p>
-        </div>
-    </section>
-</main>
-
-<footer class="footer"><div class="container">© <span id="y"></span> Ernestas</div></footer>
-<script>
-    const PHONE_RAW = '+37060457322', PHONE_DISPLAY = '+370 604 57322';
-    document.querySelectorAll('.js-phone').forEach(a=>{a.href='tel:'+PHONE_RAW;a.textContent=PHONE_DISPLAY});
-    document.getElementById('y').textContent=new Date().getFullYear();
-</script>
+<script src="script.js"></script>
 </body>
 </html>
