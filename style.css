@@ -78,3 +78,27 @@ html{scroll-behavior:smooth}
     .cards,.price-grid{grid-template-columns:1fr}
     .contact-grid{grid-template-columns:1fr}
 }
+/* Vienodas kortelių img dydis (desktop + mobilui) */
+.cards .card img{
+    width: 100%;
+    height: 220px;      /* visos vienodo aukščio */
+    object-fit: cover;  /* gražiai apkerpa, nieko netampo */
+    display: block;
+}
+@media (max-width: 640px){
+    .cards .card img{ height: 180px; }
+}
+/* Šiek tiek pasviesinam video foną */
+.hero-video{
+    filter: brightness(1.12) saturate(1.06) contrast(1.02);
+}
+
+/* Jeigu turi tamsų overlay ant hero, palengvinam jį (jei neturi – šitą galima praleisti) */
+.hero::after{
+    content:"";
+    position:absolute; inset:0;
+    pointer-events:none;
+    background: linear-gradient(180deg, rgba(0,0,0,0.10), rgba(0,0,0,0.18));
+}
+.hero-overlay h1,
+.hero-overlay p{ text-shadow: 0 2px 18px rgba(0,0,0,.25); }
