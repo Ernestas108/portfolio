@@ -5,19 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Ernestas • Portfolio</title>
 
-    <!-- Paliekam tavo esamus failus -->
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
 </head>
 
 <body>
-<!-- Antraštė -->
+<!-- Hero / antraštė (palikta paprasta, kad netrukdytų esamiems stiliams) -->
 <header class="container" style="padding: 2rem 0;">
     <h1>Ernesto darbai</h1>
     <p class="muted">Maži projektai: autoservisas, restoranas, parduotuvė ir kt.</p>
 </header>
 
-<!-- Kortelių sekcija -->
+<!-- Darbų sąrašas -->
 <section id="works" class="section">
     <div class="container">
         <div class="cards">
@@ -50,28 +49,25 @@
                 </div>
             </article>
 
-            <!-- PARDUOTUVĖ (vietoje „Greitai“) -->
+            <!-- PARDUOTUVĖ (NAUJAS – vietoje „Greitai/Dashboard“) -->
             <article class="card reveal">
                 <img src="img/dashboard.jpg" alt="Parduotuvė – professional-next" />
                 <div class="card-body">
-                    <h3>Individualūs sprendimai</h3>
-                    <p>Sistemos</p>
+                    <h3>Parduotuvė</h3>
+                    <p>Prekių katalogas su paieška, filtrais, valiutomis.</p>
                     <div class="links">
                         <a class="btn"
                            href="https://ernestas108.github.io/professional-next/">Parduotuvė</a>
-                        <!-- Jei nori atidaryti naujame lange, naudok:
-                        <a class="btn" href="https://ernestas108.github.io/professional-next/" target="_blank" rel="noopener">Parduotuvė</a>
-                        -->
                     </div>
                 </div>
             </article>
 
-            <!-- TRENERIS / kitas projektas (palikau kaip pavyzdį) -->
+            <!-- (Pasirinktinai) Treneris / kitas projektas -->
             <article class="card reveal">
                 <img src="img/treneris-hero.jpg" alt="Trenerio puslapis" />
                 <div class="card-body">
                     <h3>Treneris</h3>
-                    <p>Apie mane, treniruotės, kontaktai</p>
+                    <p>Apie mane, treniruotės, kontaktai.</p>
                     <div class="links">
                         <a class="btn"
                            href="https://ernestas108.github.io/treneris-site/"
@@ -87,7 +83,7 @@
 <footer class="container" style="padding: 2rem 0;">
     <small>© <span id="year"></span> Ernestas</small>
     <script>
-        // Dinamiškai rodom einamuosius metus
+        // mažytė smulkmena, kad rodytų einamuosius metus
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </footer>
