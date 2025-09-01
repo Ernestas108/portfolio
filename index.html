@@ -3,16 +3,124 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ernestas • Web kūrėjas</title>
-    <meta name="description" content="Greitos, aiškios, responsyvios svetainės. HTML/CSS/JS • React.">
-    <link rel="stylesheet" href="style.css" />
+    <title>Ernestas • Web kūrėjas – Svetainės, kurios parduoda</title>
+    <meta name="description" content="Greitos, aiškios ir saugios svetainės. HTML/CSS/JS • React/Next.js • SEO • greitas hostinimas.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#0f0f10">
+
+    <!-- Open Graph / SEO -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ernestas • Web kūrėjas – Svetainės, kurios parduoda" />
+    <meta property="og:description" content="Greitos, aiškios ir saugios svetainės. HTML/CSS/JS • React/Next.js • SEO • greitas hostinimas." />
+    <meta property="og:image" content="img/og-cover.jpg" />
+    <meta property="og:locale" content="lt_LT" />
+
+    <!-- Schema.org (breadcrumbs + business) minimal -->
+    <script type="application/ld+json">
+        {
+            "@context":"https://schema.org",
+            "@type":"Person",
+            "name":"Ernestas",
+            "jobTitle":"Web kūrėjas",
+            "telephone":"+37060457322",
+            "email":"mailto:ernestasnc@gmail.com",
+            "url":"https://ernestas108.github.io/portfolio"
+        }
+    </script>
+
+    <style>
+        :root{
+            --bg:#0f0f10; --ink:#e9e9ea; --muted:#c6c6c7;
+            --brand:#ffb703; --card:#18181a; --stroke:#262629;
+            --radius:16px; --shadow:0 8px 30px rgba(0,0,0,.25);
+            --header-h:64px;
+        }
+        *{box-sizing:border-box}
+        html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+            font:16px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu}
+        a{color:inherit;text-decoration:none}
+        img{max-width:100%;display:block}
+        .container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+        /* Header */
+        .topbar{position:sticky;top:0;z-index:20;background:rgba(15,15,16,.6);
+            backdrop-filter:blur(6px);border-bottom:1px solid transparent;transition:border-color .2s}
+        .topbar.scrolled{border-color:var(--stroke)}
+        .nav{display:flex;align-items:center;justify-content:space-between;height:var(--header-h)}
+        .brand{font-weight:800;letter-spacing:.2px}
+        .menu a{margin-left:18px;opacity:.9}
+        .menu .btn{margin-left:22px}
+
+        .btn{background:var(--brand);color:#111;padding:10px 18px;border-radius:999px;font-weight:700;display:inline-block}
+        .btn:hover{filter:brightness(.96)}
+        .btn-outline{border:1.5px solid rgba(255,255,255,.75);padding:10px 18px;border-radius:999px}
+
+        /* Hero video */
+        .hero{position:relative;min-height:72vh;display:grid;place-items:center;overflow:hidden;isolation:isolate}
+        .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(1.12) saturate(1.06) contrast(1.02)}
+        .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background: linear-gradient(180deg, rgba(0,0,0,0.10), rgba(0,0,0,0.18))}
+        .hero-overlay{position:relative;z-index:1;text-align:center;padding:0 16px}
+        .hero-overlay h1{font-size:clamp(28px,5vw,48px);margin:0 0 8px;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+        .hero-overlay p{color:var(--muted);margin:0 0 18px;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+        .cta a{margin:0 6px 6px 0}
+
+        /* Sections */
+        .section{padding:64px 0; scroll-margin-top: calc(var(--header-h) + 12px);}
+
+        /* Cards */
+        .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+        .card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);
+            overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .18s ease, box-shadow .18s ease}
+        .card:hover{transform:translateY(-4px);box-shadow:0 18px 50px rgba(0,0,0,.35)}
+        .card-body{padding:16px}
+        .links{margin-top:10px}
+        .cards .card img{width:100%;height:220px;object-fit:cover}
+
+        /* Pricing */
+        .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+        .price-box{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:18px;text-align:center}
+        .amt{font-size:22px;font-weight:900;margin:8px 0 4px}
+
+        /* Contact */
+        .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+        form.card input, form.card textarea{
+            width:100%;margin:8px 0;padding:12px;border-radius:12px;border:1px solid var(--stroke);
+            background:#111;color:var(--ink)
+        }
+        form.card button{width:100%}
+
+        /* Footer */
+        .footer{border-top:1px solid var(--stroke);padding:24px 0;background:#0d0d0e}
+        .foot{display:flex;justify-content:space-between;align-items:center}
+
+        /* Reveal on scroll */
+        .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease, transform .5s ease}
+        .reveal.in{opacity:1;transform:none}
+
+        /* Smooth scroll */
+        html{scroll-behavior:smooth}
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce){
+            .hero-video{display:none}
+            .hero{background:center/cover no-repeat url("img/portfolio-hero-poster.jpg")}
+        }
+
+        @media (max-width:900px){
+            .cards,.price-grid{grid-template-columns:1fr}
+            .contact-grid{grid-template-columns:1fr}
+            .cards .card img{height:180px}
+        }
+    </style>
 </head>
 <body>
 
 <header class="topbar">
     <div class="container nav">
         <a href="#" class="brand">Ernestas</a>
-        <nav class="menu">
+        <nav class="menu" aria-label="Pagrindinis meniu">
             <a href="#works" data-scroll>Projektai</a>
             <a href="#pricing" data-scroll>Kainos</a>
             <a href="#contact" class="btn" data-scroll>Susisiekti</a>
@@ -20,14 +128,14 @@
     </div>
 </header>
 
-<section class="hero">
-    <video class="hero-video" autoplay muted playsinline loop
-           poster="img/portfolio-hero-poster-1756454414.jpg">
-        <source src="img/portfolio-hero-1756454414.mp4" type="video/mp4">
+<section class="hero" aria-label="Hero">
+    <!-- ❗ Pakeisk į savo video ir poster failus "img/portfolio-hero.mp4" ir "img/portfolio-hero-poster.jpg" -->
+    <video class="hero-video" autoplay muted playsinline loop poster="img/portfolio-hero-poster.jpg">
+        <source src="img/portfolio-hero.mp4" type="video/mp4" />
     </video>
     <div class="hero-overlay">
         <h1 class="reveal">Svetainės, kurios parduoda</h1>
-        <p class="reveal">HTML/CSS/JS • React • SEO • greitas hostinimas</p>
+        <p class="reveal">HTML/CSS/JS • React/Next.js • SEO • greitas hostinimas</p>
         <div class="cta reveal">
             <a class="btn" href="#works" data-scroll>Peržiūrėti darbus</a>
             <a class="btn btn-outline" href="#pricing" data-scroll>Kainos</a>
@@ -35,44 +143,40 @@
     </div>
 </section>
 
-<section id="works" class="section">
+<section id="works" class="section" aria-labelledby="works-title">
     <div class="container">
-        <h2 class="reveal">Projektai</h2>
+        <h2 id="works-title" class="reveal">Projektai</h2>
 
-        <div class="cards">
-            <article class="card reveal">
-                <img src="img/autoservisas.jpg" alt="Autoserviso keltuve laikomas automobilis">
+        <div class="cards" role="list">
+            <article class="card reveal" role="listitem">
+                <img src="img/autoservisas.jpg" alt="Autoserviso keltuve laikomas automobilis" loading="lazy">
                 <div class="card-body">
                     <h3>Autoservisas</h3>
                     <p>Paslaugos, kontaktai</p>
                     <div class="links">
-                        <a class="btn" href="https://ernestas108.github.io/autoservisas-site/"
-                           target="_blank" rel="noopener">Autoservisas</a>
+                        <a class="btn" href="https://ernestas108.github.io/autoservisas-site/" target="_blank" rel="noopener">Atidaryti</a>
                     </div>
                 </div>
             </article>
 
-            <article class="card reveal">
-                <img src="img/restaurant.jpg" alt="Restorano interjeras ir patiekalai" />
+            <article class="card reveal" role="listitem">
+                <img src="img/restaurant.jpg" alt="Restorano interjeras ir patiekalai" loading="lazy" />
                 <div class="card-body">
                     <h3>Restoranas</h3>
                     <p>Meniu, rezervacija</p>
                     <div class="links">
-                        <a class="btn" href="https://ernestas108.github.io/restaurant/"
-                           target="_blank" rel="noopener">Restoranas</a>
+                        <a class="btn" href="https://ernestas108.github.io/restaurant/" target="_blank" rel="noopener">Atidaryti</a>
                     </div>
                 </div>
             </article>
 
-
-            <article class="card reveal">
-                <img src="img/dashboard.jpg" alt="Analitikos grafikai nešiojamojo kompiuterio ekrane">
+            <article class="card reveal" role="listitem">
+                <img src="img/dashboard.jpg" alt="Analitikos grafikai nešiojamojo kompiuterio ekrane" loading="lazy">
                 <div class="card-body">
                     <h3>Individualūs sprendimai</h3>
-                    <p>Sistemos</p>
+                    <p>Komponentai, katalogai, e‑shop’ai</p>
                     <div class="links">
-                        <!-- Tik ŠITA eilutė pakeista -->
-                        <a class="btn" href="https://ernestas108.github.io/professional-next/">Parduotuvė</a>
+                        <a class="btn" href="https://ernestas108.github.io/professional-next/" target="_blank" rel="noopener">Parduotuvė</a>
                     </div>
                 </div>
             </article>
@@ -80,21 +184,21 @@
     </div>
 </section>
 
-<section id="pricing" class="section">
+<section id="pricing" class="section" aria-labelledby="pricing-title">
     <div class="container">
-        <h2 class="reveal">Kainos</h2>
+        <h2 id="pricing-title" class="reveal">Kainos</h2>
         <div class="price-grid">
-            <div class="price-box reveal">
+            <div class="price-box reveal" aria-label="Planas: 1 puslapis">
                 <h4>1 puslapis</h4>
                 <p class="amt">nuo €149</p>
                 <p>SEO bazė, kontaktai, hostinimas.</p>
             </div>
-            <div class="price-box reveal">
+            <div class="price-box reveal" aria-label="Planas: Verslas">
                 <h4>Verslas</h4>
                 <p class="amt">nuo €349</p>
                 <p>3–5 puslapiai, forma, žemėlapis.</p>
             </div>
-            <div class="price-box reveal">
+            <div class="price-box reveal" aria-label="Planas: Custom / React">
                 <h4>Custom / React</h4>
                 <p class="amt">pagal projektą</p>
                 <p>Komponentai, integracijos, administravimas.</p>
@@ -103,14 +207,15 @@
     </div>
 </section>
 
-<section id="contact" class="section">
+<section id="contact" class="section" aria-labelledby="contact-title">
     <div class="container contact-grid">
         <div class="reveal">
-            <h2>Kontaktai</h2>
+            <h2 id="contact-title">Kontaktai</h2>
             <p><strong>Telefonas:</strong> <a class="js-phone"></a></p>
             <p><strong>El. paštas:</strong> <a class="js-email"></a></p>
             <p><strong>Vieta:</strong> Vilnius • Dirbu nuotoliu ir gyvai</p>
         </div>
+        <!-- ❗ Pakeisk Formspree ID (f/xxxxxx) į savo -->
         <form class="card reveal" action="https://formspree.io/f/your-id" method="POST">
             <h3>Parašykite žinutę</h3>
             <input type="text" name="name" placeholder="Jūsų vardas" required />
@@ -128,6 +233,39 @@
     </div>
 </footer>
 
-<script src="script.js"></script>
+<script>
+    // ---- Kontaktai vienoje vietoje (pakeiti čia → visur atsinaujina)
+    const CONTACT = { phoneRaw:'+37060457322', phoneDisplay:'+370 604 57322', email:'ernestasnc@gmail.com' };
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1) Užpildom telefoną / el. paštą
+        document.querySelectorAll('.js-phone').forEach(el=>{ if(el.tagName.toLowerCase()==='a') el.href='tel:'+CONTACT.phoneRaw; el.textContent=CONTACT.phoneDisplay; });
+        document.querySelectorAll('.js-email').forEach(el=>{ if(el.tagName.toLowerCase()==='a') el.href='mailto:'+CONTACT.email; el.textContent=CONTACT.email; });
+        const y=document.getElementById('y'); if(y) y.textContent=new Date().getFullYear();
+
+        // 2) Sticky header šešėlis scrolle
+        const topbar = document.querySelector('.topbar');
+        const onScroll = () => window.scrollY>4 ? topbar.classList.add('scrolled') : topbar.classList.remove('scrolled');
+        onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+        // 3) Sklandus scroll su kompensacija (jei reikės)
+        document.querySelectorAll('[data-scroll]').forEach(a=>{
+            a.addEventListener('click', e=>{
+                const href = a.getAttribute('href') || '';
+                if(href.startsWith('#') && href.length>1){ e.preventDefault(); const el = document.querySelector(href); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }
+            });
+        });
+
+        // 4) Reveal animacija sekcijoms
+        const io = new IntersectionObserver((ents)=>{
+            ents.forEach(ent => { if(ent.isIntersecting){ ent.target.classList.add('in'); io.unobserve(ent.target); } });
+        }, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
+        document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+        // 5) Geresnė autoplay patirtis (jei naršyklė neleidžia → lieka posteris)
+        const v = document.querySelector('.hero-video');
+        if(v){ const tryPlay = () => v.play().catch(()=>{}); document.addEventListener('visibilitychange', tryPlay, {once:true}); tryPlay(); }
+    });
+</script>
 </body>
 </html>

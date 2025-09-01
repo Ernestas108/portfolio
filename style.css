@@ -71,7 +71,7 @@ html{scroll-behavior:smooth}
 /* Reduced motion: video → poster */
 @media (prefers-reduced-motion: reduce){
     .hero-video{display:none}
-    .hero{background: center/cover no-repeat url("img/portfolio-hero-poster-1756454414.jpg")}
+    .hero{background: center/cover no-repeat url("img/portfolio-hero-poster.jpg")}
 }
 
 @media (max-width:900px){
